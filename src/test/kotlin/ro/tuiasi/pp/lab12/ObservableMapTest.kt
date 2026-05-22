@@ -14,7 +14,7 @@ class ObservableMapTest {
      */
     private fun creeazaMapObservabil(): Pair<ObservableMap<String, Int>, MutableList<Triple<String, Int?, Int>>> {
         val log = mutableListOf<Triple<String, Int?, Int>>()
-        val map = ObservableMap(mutableMapOf()) { cheie, vechi, nou ->
+        val map = ObservableMap(mutableMapOf<String, Int>()) { cheie, vechi, nou ->
             log.add(Triple(cheie, vechi, nou))
         }
         return Pair(map, log)

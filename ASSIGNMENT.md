@@ -103,5 +103,5 @@ Opțional: acceptă un callback `onPut: (K, V) -> Unit` în loc de `println`.
 ## Rulare teste
 
 ```bash
-mvn -B test
+gradle test
 ```
