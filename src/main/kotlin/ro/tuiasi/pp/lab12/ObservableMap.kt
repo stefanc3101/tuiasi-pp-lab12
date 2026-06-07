@@ -15,7 +15,7 @@ package ro.tuiasi.pp.lab12
  *
  * @param inner Map-ul intern care stochează efectiv datele
  * @param onPut Callback apelat la fiecare `put`. Primește (cheie, valoareVeche, valoareNouă).
- *              Implicit: afișează la consolă.
+ * Implicit: afișează la consolă.
  */
 class ObservableMap<K, V>(
     private val inner: MutableMap<K, V>,
@@ -35,11 +35,8 @@ class ObservableMap<K, V>(
      * @return Valoarea anterioară asociată cheii, sau `null` dacă cheia era absentă
      */
     override fun put(key: K, value: V): V? {
-        // TODO("De implementat")
-        // Pași de urmat:
-        // 1. Obțineți valoarea veche: val valoareVeche = inner[key]
-        // 2. Apelați callback-ul: onPut(key, valoareVeche, value)
-        // 3. Inserați în inner și returnați valoarea veche: return inner.put(key, value)
-        TODO("De implementat: loghează modificarea prin onPut și delegă la inner.put")
+        val valoareVeche = inner[key]
+        onPut(key, valoareVeche, value)
+        return inner.put(key, value)
     }
 }

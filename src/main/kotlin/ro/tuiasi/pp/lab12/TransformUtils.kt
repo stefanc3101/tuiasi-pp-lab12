@@ -38,12 +38,7 @@ object TransformUtils {
      * @return O nouă transformare compusă
      */
     infix fun <V> Transform<V>.andThen(g: Transform<V>): Transform<V> {
-        // TODO("De implementat")
-        // Returnați o lambda care:
-        // 1. Aplică this pe argumentul primit: val intermediar = this(it)
-        // 2. Aplică g pe intermediar: g(intermediar)
-        // Sau mai concis: return { g(this(it)) }
-        TODO("De implementat: returnează o funcție care aplică this și apoi g")
+        return { g(this(it)) }
     }
 
     /**
@@ -63,11 +58,7 @@ object TransformUtils {
      * @return Un nou HashMap cu valorile transformate
      */
     fun applyTransform(map: HashMap<String, Int>, transform: Transform<Int>): HashMap<String, Int> {
-        // TODO("De implementat")
-        // Creați un HashMap nou (nu modificați map-ul original!)
-        // Iterați prin intrările map-ului: map.entries sau map.forEach
-        // Pentru fiecare intrare (cheie, valoare), adăugați în noul map: cheie → transform(valoare)
-        // Indiciu: puteți folosi map.mapValues { transform(it.value) } și HashMap(...)
-        TODO("De implementat: returnează un nou HashMap cu fiecare valoare transformată")
+        // mapValues creează un Map nou, pe care îl convertim înapoi într-un HashMap
+        return HashMap(map.mapValues { transform(it.value) })
     }
 }
